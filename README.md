@@ -31,13 +31,18 @@
 ## Overview
 ACME Inc. is a multinational company operating in the agricultural industry growing and harvesting a variety of commodity grains like wheat, barley, and corn, among others.
 
-As is normally expected from any type of business operation, legal problems are bound to happen, and that is why most companies set up dedicated legal department tasked with managing and resolving all these legal issues across the different legal areas: corporate, regulatory, labor and employment, etc. Now, it would be unrealistic for internal legal teams to be able to handle all the potential legal issues across all the practice areas, and that is why part of this legal work is normally outsource to external legal firms.
+As is normally expected from any type of business operation, legal problems are bound to happen, and that is why most companies set up dedicated internal legal department tasked with managing and resolving all these legal issues across the different legal areas: corporate, regulatory, labor and employment, etc. Now, it would be unrealistic for internal legal teams to be able to handle all the potential legal issues across all the practice and regional areas, this is why part of this legal work is normally outsource to external legal firms.
 
-ACME has been keeping track of all the legal cases on their ELM system (Enterprise Legal Management), work outsourced to external legal firms is also tracked there. External vendors are given access to ELM to be able to submit invoices for the work they have performed, and it is here were we come in. These submitted invoices need to be paid by ACME, this is currently a very manual process, but they looking to change that through a series of implementation projects: one of them being the implementation of accounts payable systems in each the three regions they operate in.
+ACME has been keeping track of all the legal cases on their ELM system (Enterprise Legal Management), work outsourced to external legal firms is also tracked there. External vendors are given access to ELM to be able to submit invoices for the work they have performed. These submitted invoices need to be paid by ACME, this is currently a very manual process, but they looking to change that through a series of implementation projects: one of them being the implementation of accounts payable systems in each the three regions they operate in.
 
-ACME has reached out to us to help design and build an integration system to be able to move all the invoice information to the correct accounts payable system so they can be paid automatically as soon as the invoices have been approved by the internal teams.
+ACME has reached out to us to help design and build an integration system to be able to move all the invoice information to the correct accounts payable system so they can be paid automatically to the external legal firms as soon as the invoices have been approved by the internal teams.
 
 The architecture presented here is one of the many potential solutions to this integration problem.
+
+## High-Level Requirements
+After meeting with the internal stakeholders (legal and IT) we were able to capture a few interesting requirements:  
+
+* 
 
 
 ## Architecture
