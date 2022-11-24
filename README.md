@@ -29,7 +29,10 @@
 
 
 ## Overview
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam. Phasellus hendrerit diam ut odio lacinia tristique. Aenean odio velit, eleifend nec mattis ut, vulputate fermentum leo. Etiam suscipit eleifend elit. Sed posuere eu velit sit amet accumsan. Quisque sagittis ac lectus in porta. Aenean non fermentum neque. Donec a convallis enim. Vestibulum hendrerit, purus aliquam ultricies fringilla, leo ipsum ultrices eros, vel finibus purus elit sit amet leo. Sed ut consectetur nunc. Fusce ipsum urna, interdum sit amet fermentum a, luctus sit amet dolor. In maximus ex in massa interdum facilisis.
+ACME Inc. is a multinational company operating in the agricultural industry growing and harvesting a variety of commodity grains like wheat, barley, corn, among others. As is normally expected from any type of business operation, legal problems are bound to happen, and that is why most companies put in place dedicated legal department aimed at resolving all kinds of legal issues across the many potential legal areas, including corporate law, environmental law, labor and emplyment law, among many others. Now, it would be unrealistic for internal legal teams to be able to handle all the potential legal issues across all the practice areas, and that is why part of this legal work is normally outsource to external legal firms. 
+
+ 
+
 
 
 ## Architecture
