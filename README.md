@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <h1>Data Pipeline 001</h1>
+  <h2>Data Pipeline 001</h2>
 </p>
 
 <p align="center">
