@@ -42,7 +42,15 @@ The architecture presented here is one of the many potential solutions to this i
 ## High-Level Requirements
 After meeting with the internal stakeholders (legal and IT) we were able to capture a few interesting requirements:  
 
+* From an integration approach perspective, ACME is managing all other integration via the exchange of flat files, an dthey would like to keep it this way as they already have an on-premises SFTP server in place that they would like to leverage for this integration as well. This SFTP is currently being used for other integrations as well.
+* Dedicated database users need to be created for connection purposes on each database, reuse of existing users is not allowed, nor a good practice
+* The integration jobs shall run on a daily schedule
+* The integration jobs shall check for data completness and consistency, for example:  
+```
+invoice_total = sub_total - discounts + tax
+```
 * 
+
 
 
 ## Architecture
