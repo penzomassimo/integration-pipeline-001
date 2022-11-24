@@ -1,11 +1,11 @@
 <center>
 <img src="assets/images/lines.svg" width="10%" height="10%">
 # Data Pipeline 001  
-[<img src="https://img.shields.io/badge/Code Quality-20.10-blue.svg?logo=LOGO&style=flat">](<LINK>) 
-[<img src="https://img.shields.io/badge/Coverage-2.12-COLOR.svg?logo=LOGO">](<LINK>) 
-[<img src="https://img.shields.io/badge/Build-Passing-COLOR.svg?logo=LOGO">](<LINK>) 
-[<img src="https://img.shields.io/badge/Chat-Gitter-COLOR.svg?logo=LOGO">](<LINK>) 
-[<img src="https://img.shields.io/badge/License-MIT-blue.svg?logo=LOGO">](<LINK>)
+<img src="https://img.shields.io/badge/Code Quality-20.10-blue.svg?logo=LOGO&style=flat"> 
+<img src="https://img.shields.io/badge/Coverage-2.12-COLOR.svg?logo=LOGO"> 
+<img src="https://img.shields.io/badge/Build-Passing-COLOR.svg?logo=LOGO"> 
+<img src="https://img.shields.io/badge/Chat-Gitter-COLOR.svg?logo=LOGO"> 
+<img src="https://img.shields.io/badge/License-MIT-blue.svg?logo=LOGO">
 </center>
 
 <p align="center">
