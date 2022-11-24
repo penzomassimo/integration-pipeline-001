@@ -29,13 +29,15 @@
 
 
 ## Overview
-ACME Inc. is a multinational company operating in the agricultural industry growing and harvesting a variety of commodity grains like wheat, barley, corn, among others.
+ACME Inc. is a multinational company operating in the agricultural industry growing and harvesting a variety of commodity grains like wheat, barley, and corn, among others.
 
-As is normally expected from any type of business operation, legal problems are bound to happen, and that is why most companies put in place dedicated legal department aimed at resolving all kinds of legal issues across the many potential legal areas, including corporate law, environmental law, labor and emplyment law, among many others. Now, it would be unrealistic for internal legal teams to be able to handle all the potential legal issues across all the practice areas, and that is why part of this legal work is normally outsource to external legal firms.
+As is normally expected from any type of business operation, legal problems are bound to happen, and that is why most companies set up dedicated legal department tasked with managing and resolving all these legal issues across the different legal areas: corporate, regulatory, labor and employment, etc. Now, it would be unrealistic for internal legal teams to be able to handle all the potential legal issues across all the practice areas, and that is why part of this legal work is normally outsource to external legal firms.
 
-ACME has been keeping track of all the legal cases on their ELM system (Enterprise Legal Management), work outsourced to external legal firms is also tracked there. External vendors are given access to ELM to be able to submit invoices for the work they have performed, and it is here were we come in. These submitted invoices need to be paid by ACME, and they are currently printing and processing all payments manually.
+ACME has been keeping track of all the legal cases on their ELM system (Enterprise Legal Management), work outsourced to external legal firms is also tracked there. External vendors are given access to ELM to be able to submit invoices for the work they have performed, and it is here were we come in. These submitted invoices need to be paid by ACME, this is currently a very manual process, but they looking to change that through a series of implementation projects: one of them being the implementation of accounts payable systems in each the three regions they operate in.
 
-ACME has reached out to us to help design and build an integration system to be able to move all the invoice information to the correct accounts payable system, they have three different AP systems one per operating region.
+ACME has reached out to us to help design and build an integration system to be able to move all the invoice information to the correct accounts payable system so they can be paid automatically as soon as the invoices have been approved by the internal teams.
+
+The architecture presented here is one of the many potential solutions to this integration problem.
 
 
 ## Architecture
