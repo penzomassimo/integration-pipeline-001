@@ -51,7 +51,10 @@ After meeting with the internal stakeholders (legal and IT) we were able to capt
 * Generated files shall contain a timestamp.
 * Files from previous runs shal be removed upon insertion in the corresponding AP system.
 
-## Architecture
+## Proposed Architecture and Technology
+In order to demo how the solution would work we have leveraged Docker and Docker Compose to spin up all the services needed by the solution locally. Note that deploying the solution to a production environment needs careful planning and design, for an idea on how production would look like see further down below. The reader should be able to clone this repository, run it with docker compose and play around with it.
+
+
 <center>
 <img src="assets/diagrams/diagram-1.png" width="100%" height="70%">  
 *Fig - A single track trail outside of Albuquerque, New Mexico.*
