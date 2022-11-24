@@ -2,8 +2,9 @@
 <img src="assets/images/lines.svg" width="10%" height="10%"> 
 </p>
 
-
+<p align="center">
 # Data Pipeline 001  
+</p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Code Quality-20.10-blue.svg?logo=LOGO&style=flat"> 
