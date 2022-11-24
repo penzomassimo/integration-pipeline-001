@@ -51,9 +51,17 @@ After meeting with the internal stakeholders (legal and IT) we were able to capt
 * Generated files shall contain a timestamp.
 * Files from previous runs shal be removed upon insertion in the corresponding AP system.
 
-## Proposed Architecture and Technology
-In order to demo how the solution would work we have leveraged Docker and Docker Compose to spin up all the services needed by the solution locally. Note that deploying the solution to a production environment needs careful planning and design, for an idea on how production would look like see further down below. The reader should be able to clone this repository, run it with docker compose and play around with it.
+## Proposed Architecture
+In order to demo how the solution would work we have leveraged Docker and Docker Compose to spin up all the services needed by the solution locally. Note that deploying the solution to a production environment needs careful planning and design, for an idea on how production deployment in AWS would look like see further down below. The reader should be able to clone this repository, run it with docker compose and play around with it.
 
+### TL;DR
+* One container with a Postgresql DB server to simulate the source ELM system
+* Three containers, each one with a Postgres DB server to simulate the three AP target systems 
+* One container with an Apache NiFi server
+* One con
+* A container with an FTP server will be used to store the flat files
+
+The following deployment diagram outlines all the components of the proposed solution:
 
 <center>
 <img src="assets/diagrams/diagram-1.png" width="100%" height="70%">  
@@ -65,26 +73,23 @@ In order to demo how the solution would work we have leveraged Docker and Docker
 *Fig - A single track trail outside of Albuquerque, New Mexico.*
 </center>
 
-## Components
-
-### Apache NiFi
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
 
 
-### Component 002
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
+## Technology
+***Apache NiFi*** - Apache NiFi provides powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 
-<center>
-<img src="assets/er.png" width="60%" height="60%">  
-*Fig - A single track trail outside of Albuquerque, New Mexico.*
-</center>  
+***Apache NiFi Registry*** - Registry - a subproject of Apache NiF - is a complementary application that provides a central location for storage and management of shared resources across one or more instances of NiFi or MiNiFi.
+ 
+***Apache Zookeeper*** - ZooKeeper is a high-performance coordination service for distributed applications. It exposes common services - such as naming, configuration management, synchronization, and group services - in a simple interface so you don't have to write them from scratch. You can use it off-the-shelf to implement consensus, group management, leader election, and presence protocols. And you can build on it for your own, specific needs.
 
+***PostgreSQL*** - PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.
 
-### Component 003
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
+***pgAdmin*** - PGAdmin is a web-based GUI tool used to interact with the Postgres database sessions, both locally and remote servers as well. You can use PGAdmin to perform any sort of database administration required for a Postgres database.
+
 
 ## How It All Works
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
+
 
 
 ## Getting Started
