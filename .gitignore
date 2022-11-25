@@ -1,2 +1,49 @@
-# assets backups
+# assets
 assets/diagrams/.*
+assets/images/.*
+
+
+
+# nifi-registry-svc
+
+
+
+
+# nifi-svc
+nifi-svc/logs/
+
+
+
+# pgadmin-svc
+
+
+
+
+# postgresdb-app-1-svc
+postgresdb-app-1-svc/postgres-data/
+
+
+
+# postgresdb-app-2-svc
+postgresdb-app-2-svc/postgres-data/
+
+
+
+# postgresdb-app-3-svc
+postgresdb-app-3-svc/postgres-data/
+
+
+
+# postgresdb-svc
+postgresdb-svc/postgres-data/
+
+
+
+# svftp-svc
+svftp-svc/svftp-log-data/
+
+
+
+
+
+
