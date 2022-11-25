@@ -106,6 +106,18 @@ $ docker --version
 $ docker-compose --version
 ```
 
+* Create a shallow clone of this repository
+
+```
+$ git clone --depth 1 https://github.com/penzomassimo/integration-pipeline-001
+```
+
+* Run Docker Compose to spin up all the containers
+
+```
+$ docker-compose up
+```
+
 * Restore databases - each database service for this solution comes with a backup file under the `./<service-folder>/backup/` folder that needs to be restored so we can have a working schema
 
 ```
@@ -123,11 +135,7 @@ $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -
 
 ```  
 
-* Run Docker Compose to spin up all the containers
 
-```
-$ docker-compose up
-```
 
 * Follow the links on the table below to access the corresponding UI for the different components:
 

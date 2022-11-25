@@ -1,4 +1,6 @@
+
 version: "3.9"
+
 services:
 
   postgresdb-svc:
@@ -106,6 +108,11 @@ services:
        - ./pgadmin-svc/pgadmin-data:/var/lib/pgadmin
     networks:
       - default
+    depends_on:
+      - postgresdb-svc
+      - postgresdb-app-1-svc
+      - postgresdb-app-2-svc
+      - postgresdb-app-3-svc
 
 
   nifi-zookeeper-svc:
@@ -161,6 +168,11 @@ services:
       - ./nifi-svc/lib:/opt/nifi/nifi-current/lib       # NOTE - manually copy the /conf folder from the container to the local machine and then re-start the container
     networks:
       - default
+    depends_on:
+      - postgresdb-svc
+      - postgresdb-app-1-svc
+      - postgresdb-app-2-svc
+      - postgresdb-app-3-svc
 
 
   svftp-svc:
