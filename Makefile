@@ -1,6 +1,9 @@
+
 hello:
 	echo "Hello, World"
 
 
 
-cleanup_ftp_server_files:
+cleanup_assets:
+	find ./assets/diagrams -type f -iname '.*' -exec rm {} \;
+	find ./assets/images -type f -iname '.*' -exec rm {} \; 

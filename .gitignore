@@ -9,6 +9,7 @@ nifi-registry-svc/flow_storage/
 # nifi-svc
 nifi-svc/conf/
 nifi-svc/content_repository/
+nifi-svc/database_repository/
 nifi-svc/flowfile_repository/
 nifi-svc/lib/
 nifi-svc/logs/
