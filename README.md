@@ -27,7 +27,6 @@
   <a href="#license">License</a>
 </p>
 
-
 ## Overview
 ACME Inc. is a multinational company operating in the agricultural industry growing and harvesting a variety of commodity grains like wheat, barley, and corn, among others.
 
@@ -90,7 +89,10 @@ The following deployment diagram outlines all the components of the proposed sol
 ## How It All Works
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
 
-
+<center>
+<img src="assets/diagrams/sequence_diagram.png" width="30%" height="70%">  
+*Fig - A single track trail outside of Albuquerque, New Mexico.*
+</center>
 
 ## Getting Started
 
@@ -104,7 +106,7 @@ $ docker --version
 $ docker-compose --version
 ```
 
-* Restore databases - each database service for this solution comes with a backup under the `/backup/` folder that needs to be restored so we can have a working schema
+* Restore databases - each database service for this solution comes with a backup file under the `./<service-folder>/backup/` folder that needs to be restored so we can have a working schema
 
 ```
 // ELM database
@@ -132,7 +134,7 @@ $ docker-compose up
 
 | Service Name         | URL                                           |
 |-------------------|------------------------------------------------|
-| `pgAdmin UI`        | `http://127.0.0.1:8080` |
+| `pgAdmin UI`        | [http://127.0.0.1:8080](http://127.0.0.1:8080) |
 | `NiFi Data Flow UI` | `http://127.0.0.1:8091/nifi/` |
 | `NiFi Registry UI`  | `http://127.0.0.1:18080/nifi-registry/` |
 
