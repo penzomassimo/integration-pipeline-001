@@ -130,14 +130,14 @@ $ docker-compose up
 * Follow the links on the table below to access the corresponding UI for the different components:
 
 
-| Component         | Link                                           |
+| Service Name         | URL                                           |
 |-------------------|------------------------------------------------|
-| pgAdmin UI        | [http://127.0.0.1:8091](HTTP://127.0.0.1:8091) |
-| NiFi Data Flow UI | [http://127.0.0.1:8091/nifi/](http://127.0.0.1:8091) |
-| NiFi Registry UI  | [http://127.0.0.1:8091](HTTP://127.0.0.1:8091) |
+| `pgAdmin UI`        | `http://127.0.0.1:8080` |
+| `NiFi Data Flow UI` | `http://127.0.0.1:8091/nifi/` |
+| `NiFi Registry UI`  | `http://127.0.0.1:18080/nifi-registry/` |
 
 ### Uninstall
-* To bring down all the containers do
+* Stop and remove all the containers, networks, volumes and images created by `$ docker-compose up`
 
 ```
 $ docker-compose down -v
