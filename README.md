@@ -94,7 +94,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo 
 
 ## Getting Started
 
-* Check if Docker and Docker Compose are installed in your computer
+* Check Docker and Docker Compose installation
 
 ```
 ## Docker
@@ -104,11 +104,20 @@ $ docker --version
 $ docker-compose --version
 ```
 
-* Restore databases - each database service for this solution comes with a backup file that needs to be restored
+* Restore databases - each database service for this solution comes with a backup under the `/backup/` folder that needs to be restored so we can have a working schema
 
 ```
-## Source database
-$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i your-db-container psql -U postgres
+## ELM database
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
+
+## AP system 1 database
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
+
+## AP system 2 database
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
+
+## AP system 3 database
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
 
 
 ```  
