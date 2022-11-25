@@ -111,14 +111,13 @@ $ docker-compose --version
 $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
 
 ## AP system 1 database
-$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-1
 
 ## AP system 2 database
-$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-2
 
 ## AP system 3 database
-$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
-
+$ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-3
 
 ```  
 
