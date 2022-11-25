@@ -97,31 +97,38 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo 
 * Check Docker and Docker Compose installation
 
 ```
-## Docker
+// Docker
 $ docker --version
 
-## Docker Compose
+// Docker Compose
 $ docker-compose --version
 ```
 
 * Restore databases - each database service for this solution comes with a backup under the `/backup/` folder that needs to be restored so we can have a working schema
 
 ```
-## ELM database
+// ELM database
 $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-1
 
-## AP system 1 database
+// AP system 1 database
 $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-1
 
-## AP system 2 database
+// AP system 2 database
 $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-2
 
-## AP system 3 database
+// AP system 3 database
 $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -U admin -d db-app-3
 
 ```  
 
-<center>
+* Run Docker Compose to spin up all the containers
+
+```
+$ docker-compose up
+```
+
+* Follow the links on the table below to access the corresponding UI for the different components:
+
 
 | Component         | Link                                           |
 |-------------------|------------------------------------------------|
@@ -129,10 +136,8 @@ $ cat ./postgresdb-svc/backups/backup.sql | docker exec -i postgresdb-svc psql -
 | NiFi Data Flow UI | [http://127.0.0.1:8091/nifi/](http://127.0.0.1:8091) |
 | NiFi Registry UI  | [http://127.0.0.1:8091](HTTP://127.0.0.1:8091) |
 
-</center>
-
 ### Uninstall
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae risus id leo tincidunt placerat iaculis sit amet nunc. Aenean mollis sapien eget eros semper porta. Maecenas id nisi ultricies, vestibulum magna vel, elementum lectus. Praesent bibendum vitae est ac aliquam.
+* To bring down all the containers do
 
 ```
 $ docker-compose down -v
