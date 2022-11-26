@@ -197,14 +197,6 @@ services:
       - default
 
 
-  # monstaftp-svc:
-  #   image: cardonaje/monstaftp-docker:latest
-  #   ports:
-  #     - 127.0.0.1:82:82
-  #   networks:
-  #     - default
-
-
 networks:
   default:
     name: project-network
