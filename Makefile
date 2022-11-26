@@ -36,3 +36,4 @@ cleanup-postgresdb-svc:
 cleanup-svftp-svc:
 	echo 'clean'
 
+massimo: cleanup-nifi-svc cleanup-pgadmin-svc

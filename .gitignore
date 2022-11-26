@@ -1,12 +1,17 @@
-# assets
+
+## assets
 assets/diagrams/.*
 assets/images/.*
 
-# nifi-registry-svc
+
+
+## nifi-registry-svc
 nifi-registry-svc/database/
 nifi-registry-svc/flow_storage/
 
-# nifi-svc
+
+
+## nifi-svc
 nifi-svc/conf/
 nifi-svc/content_repository/
 nifi-svc/database_repository/
@@ -16,25 +21,37 @@ nifi-svc/logs/
 nifi-svc/provenance_repository/
 nifi-svc/state/
 
-# pgadmin-svc
+
+
+## pgadmin-svc
 pgadmin-svc/pgadmin-data/
 
-# postgresdb-app-1-svc
+
+
+## postgresdb-app-1-svc
 postgresdb-app-1-svc/postgres-data/
 
-# postgresdb-app-2-svc
+
+
+## postgresdb-app-2-svc
 postgresdb-app-2-svc/postgres-data/
 
-# postgresdb-app-3-svc
+
+
+## postgresdb-app-3-svc
 postgresdb-app-3-svc/postgres-data/
 
-# postgresdb-svc
+
+
+## postgresdb-svc
 postgresdb-svc/postgres-data/
 
-# svftp-svc
-svftp-svc/svftp-config/
+
+
+## svftp-svc
+# svftp-svc/svftp-config/
 svftp-svc/svftp-data/
-svftp-svc/svftp-log-data/
+# svftp-svc/svftp-log-data/
 
 
 
