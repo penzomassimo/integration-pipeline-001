@@ -91,12 +91,6 @@ backup-services:
 
 
 
-
-
-
-
-
-
 restore-services:	
 	echo '====== Stopping all services ======'
 	docker-compose stop
