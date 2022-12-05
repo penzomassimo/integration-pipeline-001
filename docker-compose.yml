@@ -3,14 +3,13 @@ version: "3.9"
 
 services:
 
-  postgresdb-svc:
-    build:
-      context: ./postgresdb-svc/dockerfiles
-      dockerfile: Dockerfile
-    restart: always
+  postgresdb-app-1-svc:
+    image: postgres:latest
+    container_name: postgresdb-app-1-svc
+    restart: ${RESTART_POLICY}
     environment: 
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: db-1
     ports:
       - target: 5432
@@ -19,21 +18,26 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - ./postgresdb-svc/postgres-data:/var/lib/postgresql/data
-      # - ./postgresdb-svc/scripts:/docker-entrypoint-initdb.d
+      - type: volume
+        source: postgresdb-app-1-svc-vol-01
+        target: /var/lib/postgresql/data
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
+      default:
+        ipv4_address: 172.16.238.10
 
 
-  postgresdb-app-1-svc:
-    build:
-      context: ./postgresdb-app-1-svc/dockerfiles
-      dockerfile: Dockerfile
-    restart: always
+
+  postgresdb-app-2-svc:
+    image: postgres:latest
+    container_name: postgresdb-app-2-svc
+    restart: ${RESTART_POLICY}
     environment: 
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: db-app-1
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: db-1
     ports:
       - target: 5432
         host_ip: 127.0.0.1
@@ -41,21 +45,26 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - ./postgresdb-app-1-svc/postgres-data:/var/lib/postgresql/data
-      # - ./postgresdb-svc/scripts:/docker-entrypoint-initdb.d
+      - type: volume
+        source: postgresdb-app-2-svc-vol-01
+        target: /var/lib/postgresql/data
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
+      default:
+          ipv4_address: 172.16.238.20
 
 
-  postgresdb-app-2-svc:
-    build:
-      context: ./postgresdb-app-2-svc/dockerfiles
-      dockerfile: Dockerfile
-    restart: always
+
+  postgresdb-app-3-svc:
+    image: postgres:latest
+    container_name: postgresdb-app-3-svc
+    restart: ${RESTART_POLICY}
     environment: 
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: db-app-2
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: db-1
     ports:
       - target: 5432
         host_ip: 127.0.0.1
@@ -63,21 +72,26 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - ./postgresdb-app-2-svc/postgres-data:/var/lib/postgresql/data
-      # - ./postgresdb-svc/scripts:/docker-entrypoint-initdb.d
+      - type: volume
+        source: postgresdb-app-3-svc-vol-01
+        target: /var/lib/postgresql/data
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
+      default:
+          ipv4_address: 172.16.238.30
 
 
-  postgresdb-app-3-svc:
-    build:
-      context: ./postgresdb-app-3-svc/dockerfiles
-      dockerfile: Dockerfile
-    restart: always
+
+  postgresdb-app-4-svc:
+    image: postgres:latest
+    container_name: postgresdb-app-4-svc
+    restart: ${RESTART_POLICY}
     environment: 
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: db-app-3
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: db-1
     ports:
       - target: 5432
         host_ip: 127.0.0.1
@@ -85,71 +99,70 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - ./postgresdb-app-3-svc/postgres-data:/var/lib/postgresql/data
-      # - ./postgresdb-svc/scripts:/docker-entrypoint-initdb.d
+      - type: volume
+        source: postgresdb-app-4-svc-vol-01
+        target: /var/lib/postgresql/data
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
+      default:
+        ipv4_address: 172.16.238.40
 
-
-  pgadmin-svc:
-    image: dpage/pgadmin4:latest
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    ports:
-      - target: 80
-        host_ip: 127.0.0.1
-        published: 80
-        protocol: tcp
-        mode: host
-    volumes:
-       - ./pgadmin-svc/pgadmin-data:/var/lib/pgadmin
-    networks:
-      - default
-    depends_on:
-      - postgresdb-svc
-      - postgresdb-app-1-svc
-      - postgresdb-app-2-svc
-      - postgresdb-app-3-svc
 
 
   nifi-zookeeper-svc:
-    image: 'zookeeper:latest'
-    restart: always
+    image: zookeeper:latest
+    container_name: nifi-zookeeper-svc
+    restart: ${RESTART_POLICY}
     environment:
       ALLOW_ANONYMOUS_LOGIN: yes
     networks:
-        - default
+      default:
+        ipv4_address: 172.16.238.60
+
 
 
   nifi-registry-svc:
-    image: 'apache/nifi-registry:latest'
-    restart: always
+    build:
+      context: ./nifi-registry-svc
+      dockerfile: nifi-registry-svc.Dockerfile
+    container_name: nifi-registry-svc
+    restart: ${RESTART_POLICY}
     ports:
       - target: 18080
         host_ip: 127.0.0.1
         published: 18080
         protocol: tcp
         mode: host
-    environment:
-      LOG_LEVEL: INFO
-      NIFI_REGISTRY_DB_DIR: /opt/nifi-registry/nifi-registry-current/database
-      NIFI_REGISTRY_FLOW_PROVIDER: file
-      NIFI_REGISTRY_FLOW_STORAGE_DIR: /opt/nifi-registry/nifi-registry-current/flow_storage
+    # environment:
+    #   LOG_LEVEL: INFO
+    #   NIFI_REGISTRY_DB_DIR: /opt/nifi-registry/nifi-registry-current/database
+    #   NIFI_REGISTRY_FLOW_PROVIDER: file
+    #   NIFI_REGISTRY_FLOW_STORAGE_DIR: /opt/nifi-registry/nifi-registry-current/flow_storage
     volumes:
-      - ./nifi-registry-svc/database:/opt/nifi-registry/nifi-registry-current/database
-      - ./nifi-registry-svc/flow_storage:/opt/nifi-registry/nifi-registry-current/flow_storage
+      - type: volume
+        source: nifi-registry-svc-vol-01
+        target: /opt/nifi-registry/nifi-registry-current
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
+      default:
+        ipv4_address: 172.16.238.70
+
 
 
   nifi-svc:
-    image: 'apache/nifi:latest'
-    restart: always
+    image: apache/nifi:latest
+    container_name: nifi-svc
+    restart: ${RESTART_POLICY}
     ports:
-      - '8091:8080'
+      - target: 8080
+        host_ip: 127.0.0.1
+        published: 8091
+        protocol: tcp
+        mode: host
     environment:
       NIFI_WEB_HTTP_PORT: 8080
       NIFI_CLUSTER_IS_NODE: true
@@ -158,26 +171,22 @@ services:
       NIFI_ELECTION_MAX_WAIT: 30 sec
       NIFI_SENSITIVE_PROPS_KEY: '12345678901234567890A'
     volumes:
-      - ./nifi-svc/database_repository:/opt/nifi/nifi-current/database_repository
-      - ./nifi-svc/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
-      - ./nifi-svc/content_repository:/opt/nifi/nifi-current/content_repository
-      - ./nifi-svc/provenance_repository:/opt/nifi/nifi-current/provenance_repository
-      - ./nifi-svc/state:/opt/nifi/nifi-current/state
-      - ./nifi-svc/logs:/opt/nifi/nifi-current/logs
-      - ./nifi-svc/conf:/opt/nifi/nifi-current/conf     # NOTE - manually copy the /conf folder from the container to the local machine and then re-start the container
-      - ./nifi-svc/lib:/opt/nifi/nifi-current/lib       # NOTE - manually copy the /conf folder from the container to the local machine and then re-start the container
+      - type: volume
+        source: nifi-svc-vol-01
+        target: /opt/nifi-registry/nifi-registry-current
+        read_only: false
+        volume:
+          nocopy: false
     networks:
-      - default
-    depends_on:
-      - postgresdb-svc
-      - postgresdb-app-1-svc
-      - postgresdb-app-2-svc
-      - postgresdb-app-3-svc
+      default:
+        ipv4_address: 172.16.238.80
 
 
-  svftp-svc:
+
+  vsftp-svc:
     image: fauria/vsftpd:latest
-    restart: always
+    container_name: vsftp-svc
+    restart: ${RESTART_POLICY}
     environment:
       FTP_USER: adminuser
       FTP_PASS: adminpass
@@ -186,17 +195,66 @@ services:
       # PASV_MIN_PORT: 21100
       # PASV_MAX_PORT: 21110
     volumes:
-      - ./svftp-svc/svftp-data:/home/vsftpd
-      - ./svftp-svc/svftp-log-data:/var/log/vsftpd
-      - ./svftp-svc/svftp-config:/etc/vsftp
+      - type: volume
+        source: vsftp-svc-vol-01
+        target: /home/vsftpd
+        read_only: false
+        volume:
+          nocopy: false
+      - type: volume
+        source: vsftp-svc-vol-02
+        target: /var/log/vsftpd
+        read_only: false
+        volume:
+          nocopy: false
+      - type: volume
+        source: vsftp-svc-vol-03
+        target: /etc/vsftp
+        read_only: false
+        volume:
+          nocopy: false
     ports:
-      - 0.0.0.0:20:20
-      - 0.0.0.0:21:21
-      # - "21100-21110:21100-21110"
+      - target: 20
+        host_ip: 127.0.0.1
+        published: 20
+        protocol: tcp
+        mode: host
+      - target: 21
+        host_ip: 127.0.0.1
+        published: 21
+        protocol: tcp
+        mode: host
     networks:
-      - default
+      default:
+          ipv4_address: 172.16.238.90
+
 
 
 networks:
   default:
     name: project-network
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
+
+volumes:
+  postgresdb-app-1-svc-vol-01:
+  postgresdb-app-2-svc-vol-01:
+  postgresdb-app-3-svc-vol-01:
+  postgresdb-app-4-svc-vol-01:
+  pgadmin-svc-vol-01:
+  nifi-registry-svc-vol-01:
+  nifi-svc-vol-01:
+  vsftp-svc-vol-01:
+  vsftp-svc-vol-02:
+  vsftp-svc-vol-03:
+
+
+# configs:
+#   http_config:
+#     file: ./httpd.conf
+
+# secrets:
+#   server-certificate:
+#     file: ./server.cert
